@@ -1,5 +1,28 @@
 # 2020 / 07 / 03 (금) 코드포스 연습문제
 
+## 14225 부분수열의 합
+
+![image](https://user-images.githubusercontent.com/50068946/86923622-3e597b80-c169-11ea-9153-89660d665697.png)
+
+이 문제를 처음 봤을 때 어떻게 풀어야 할지 몰랐었다. n이 작아서 완전탐색이 가능하다고 생각이 들었지만 n 개수에 따라서 반복문을 만들어야 할 것 같아서 패스했다. 다음으로 규칙이 있나 생각이 들어서 계속 고민해봤지만 답을 구하지 못했다. 알고보니 이 문제는 비트마스크를 사용해서 부분집합을 구할 수 있었다. 비트마스크는 원소 하나를 하나의 비트로 표현하는 걸 말한다. 비트마스크와 비트연산으로 완전탐색을 어떻게 하는지 공부해봤다.
+
+![image](https://user-images.githubusercontent.com/50068946/86924443-72816c00-c16a-11ea-96a3-a2b67ed16b2c.png)
+
+![image](https://user-images.githubusercontent.com/50068946/86924608-a5c3fb00-c16a-11ea-9ff1-ea0da437f3a4.png)
+
+비트에 대한 기본 개념을 공부했다. 
+
+![image](https://user-images.githubusercontent.com/50068946/86924681-c0966f80-c16a-11ea-9090-78f338f64e73.png)
+
+비트마스크로 완전탐색하는 방법은 위와 같다. 
+
+<details>
+    <summary>코드 보기</summary>
+
+[내 코드](https://github.com/mimseong/ucpc2020/blob/master/20_07_05/E_14225.cpp)
+
+</details>
+
 ## 17213 과일 서리
 
 ![image](https://user-images.githubusercontent.com/50068946/86871824-fbba8380-c115-11ea-99cb-ddbda47e12b7.png)
