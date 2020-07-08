@@ -19,6 +19,43 @@
 
 </details>
 
+## 8922 두찌 수열
+
+![image](https://user-images.githubusercontent.com/50068946/86875329-32e06300-c11d-11ea-9fce-8eab1c04d62f.png)
+
+입력값이 작아서 완전탐색으로 풀 수 있는 문제였다. 그대로 값을 입력받아서 두치 수열을 구하는 데 1000번을 넘어가면 loop를 출력하고 배열이 0이 되면 zero를 출력한다. 
+
+```
+int main() {
+    vector<int> a(10);
+    vector<int> b(10);
+
+    for (int i = 0; i < 10; i++)
+    {
+    	a[i] = i;
+    	b[i] = i;
+    }
+
+    if (a == b)
+    	cout << "같다!\n";
+   	else
+   		cout << "다르다\n";
+    
+    return 0;
+}
+```
+
+a == b로 벡터 배열이 같은지 확인할 수 있는지 궁금해서 코드를 짜보았다. a == b로 같은지 확인할 수 있는 것 같다. 
+
+**코드**
+
+<details>
+    <summary>코드 보기</summary>
+
+[내 코드](https://github.com/mimseong/ucpc2020/blob/master/20_07_05/C_8922.cppa)
+
+</details>
+
 
 ## 2999 비밀 이메일
 
