@@ -6,7 +6,12 @@
 
 이 문제를 처음 봤을 때 어떻게 풀어야 할지 몰랐었다. n이 작아서 완전탐색이 가능하다고 생각이 들었지만 n 개수에 따라서 반복문을 만들어야 할 것 같아서 패스했다. 다음으로 규칙이 있나 생각이 들어서 계속 고민해봤지만 답을 구하지 못했다. 알고보니 이 문제는 비트마스크를 사용해서 부분집합을 구할 수 있었다. 비트마스크는 원소 하나를 하나의 비트로 표현하는 걸 말한다. 비트마스크와 비트연산으로 완전탐색을 어떻게 하는지 공부해봤다.
 
+<details>
+    <summary>비트 마스크로 완전탐색</summary>
+
 ![image](https://user-images.githubusercontent.com/50068946/86924443-72816c00-c16a-11ea-96a3-a2b67ed16b2c.png)
+
+
 
 ![image](https://user-images.githubusercontent.com/50068946/86924608-a5c3fb00-c16a-11ea-9ff1-ea0da437f3a4.png)
 
@@ -15,6 +20,8 @@
 ![image](https://user-images.githubusercontent.com/50068946/86924681-c0966f80-c16a-11ea-9090-78f338f64e73.png)
 
 비트마스크로 완전탐색하는 방법은 위와 같다. 
+
+</details>
 
 <details>
     <summary>코드 보기</summary>
@@ -25,11 +32,23 @@
 
 ## 17213 과일 서리
 
-![image](https://user-images.githubusercontent.com/50068946/86871824-fbba8380-c115-11ea-99cb-ddbda47e12b7.png)
+![image](![image](https://user-images.githubusercontent.com/50068946/86925346-baed5980-c16b-11ea-9a92-64c3d31c527f.png))
 
 문제 읽어보니 고등학교 때 풀었던 중복 조합 문제였다. 어떤 개념을 써야 하는지는 바로 떠올랐지만 슬프게도 졸업한 지 오래라 기억이 나지 않았다. 그래서 다시 개념을 정리한 다음 풀어보았다.
 
-![image](https://user-images.githubusercontent.com/50068946/86872259-e09c4380-c116-11ea-84f3-40e6c56198e0.png)
+#### 조합
+
+서로 다른 n개에서 r개를 뽑는 경우의 수
+
+#### 중복조합
+
+한가지 종류의 무언가를 뽑는 횟수가 몇 번이 되어도 상관 없다.
+
+![image](https://user-images.githubusercontent.com/50068946/86925559-fdaf3180-c16b-11ea-970c-49459cb20fa5.png)
+
+정리하면 아래와 같이 식이 나온다. 
+
+![image](https://user-images.githubusercontent.com/50068946/86925627-128bc500-c16c-11ea-92b5-eb05a1bab481.png)
 
 모든 과일을 적어도 1개는 훔친다고 했으므로 m에 n개를 뺀 다음 계산했다. 
 
@@ -75,7 +94,7 @@ a == b로 벡터 배열이 같은지 확인할 수 있는지 궁금해서 코드
 <details>
     <summary>코드 보기</summary>
 
-[내 코드](https://github.com/mimseong/ucpc2020/blob/master/20_07_05/C_8922.cppa)
+[내 코드](https://github.com/mimseong/ucpc2020/blob/master/20_07_05/C_8922.cpp)
 
 </details>
 
