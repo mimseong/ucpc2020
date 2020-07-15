@@ -25,12 +25,11 @@ struct Edge
 };
 
 vector<Edge> edge[300005];
-int dist[300005];
 bool visited[300005];
 
-vector<ii> calc(int v, int x, vector<int> &m)
+vector<int> calc(int v, int x, vector<int> m)
 {
-    memset(dist, -1, sizeof(dist));
+    vector<int> dist(v+1, -1);
     memset(visited, false, sizeof(visited));
     
     priority_queue<ii, vector<ii>, greater<ii>> pq;
@@ -43,6 +42,7 @@ vector<ii> calc(int v, int x, vector<int> &m)
     
     while (!pq.empty())
     {
+        
         auto now = pq.top();
         pq.pop();
         
@@ -54,23 +54,16 @@ vector<ii> calc(int v, int x, vector<int> &m)
         for (auto & e : edge[now.yy])
         {
             int newD = dist[now.yy] + e.w;
+            
             if (dist[e.to] != -1 && dist[e.to] < newD)
                 continue;
+            
             dist[e.to] = newD;
             pq.emplace(dist[e.to], e.to);
         }
     }
-
-    vector<ii> ans;
-    for (int i = 0; i < v; i++)
-    {
-        if (0 < dist[i] && dist[i] <= x)
-        {
-            ans.emplace_back(i, dist[i]);
-        }
-    }
     
-    return ans;
+    return dist;
 }
 
 int main() 
@@ -84,6 +77,7 @@ int main()
         scanf("%d %d %d", &a, &b, &t);
         
         edge[a].emplace_back(b, t);
+        edge[b].emplace_back(a, t);
     }
 
     int m, x;
@@ -97,22 +91,28 @@ int main()
     vector<int> vs(s);
     for (int i = 0; i < s; i++)
         scanf("%d", &vs[i]);
+        
+    vector<int> mdist;
+    vector<int> sdist;
 
-    vector<ii> ansm;
-    vector<ii> anss;
-
-    ansm = calc(v, x, vm);
-    for (int i = 0; i < ansm.size(); i++)
-    {
-        printf("%d %d\n", ansm[i].xx, ansm[i].yy);
-    }
-    printf("----\n");
+    mdist = calc(v, x, vm);
+    sdist = calc(v, y, vs);
     
-    anss = calc(v, y, vs);
-    for (int i = 0; i < anss.size(); i++)
+    i64 min = -1;
+    for (int i = 1; i <= v; i++)
     {
-        printf("%d %d\n", anss[i].xx, anss[i].yy);
+        if (0 < mdist[i] && mdist[i] <= x && 0 < sdist[i] && sdist[i] <= y)
+        {
+            if (min == -1)
+                min = mdist[i] + sdist[i];
+            else
+            {
+                if (mdist[i] + sdist[i] < min)
+                    min = mdist[i] + sdist[i];
+            }
+        }
     }
     
+    printf("%d", min);
     return 0;
 }
