@@ -28,30 +28,16 @@ int main() {
     
     vector<ii> v(n);
     for (int i = 0; i < n; i++)
-    {
         scanf("%d %d", &v[i].xx, &v[i].yy);
-    }
         
     sort(v.begin(), v.end(), sortbyfirst);
-    
-    // for (int i = 0; i < n; i++)
-    // {
-    //     printf("%d %d\n", v[i].xx, v[i].yy);
-    // }
     
     int start = v[0].yy - v[0].xx;
     for (int i = 1; i < n; i++)
     {
-        if (v[i].yy >= start)
-        {
-            start -= v[i].xx;
-        }
-        else
-        {
+        if (v[i].yy < start)
             start = v[i].yy;
-            start -= v[i].xx;
-        }
-        //cout << start << endl;
+        start -= v[i].xx;
     }
     
     if (start < 0)
