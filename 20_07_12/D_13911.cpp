@@ -101,16 +101,11 @@ int main()
     i64 min = -1;
     for (int i = 1; i <= v; i++)
     {
-        if (0 < mdist[i] && mdist[i] <= x && 0 < sdist[i] && sdist[i] <= y)
-        {
-            if (min == -1)
-                min = mdist[i] + sdist[i];
-            else
-            {
-                if (mdist[i] + sdist[i] < min)
-                    min = mdist[i] + sdist[i];
-            }
-        }
+        if (!(0 < mdist[i] && mdist[i] <= x && 0 < sdist[i] && sdist[i] <= y))
+            continue ;
+
+        if (min == -1 || mdist[i] + sdist[i] < min)
+            min = mdist[i] + sdist[i];
     }
     
     printf("%d", min);
