@@ -24,41 +24,37 @@ int main()
     scanf("%d %d", &n, &q);
     
     vector<int> v(n);
+
     for (int i = 0; i < n; i++)
         scanf("%d", &v[i]);
 
-    i64 offset = 0;
+    int offset = 0;
+
     for (int i = 0; i < q; i++)
     {
-        int t, a, b;
+        int t;
         scanf("%d", &t);
 
-        if (t == 2)
+        if (t == 1)
         {
-            scanf("%d", &a);
-            a %= 5;
-            offset = (offset + a) % n;
-        }
-        else if (t == 3)
-        {
-            scanf("%d", &a);
-            a %= 5;
-            offset = (offset + (n-a)) % n;
+            int p, x;
+            scanf("%d %d", &p, &x);
+            p--;
+            p = (p + offset) % n;
+            v[p] += x;
         }
         else
         {
-            scanf("%d %d", &a, &b);
-            v[(n+offset+a)%n] += b;
+            int s;
+            scanf("%d", &s);
+            if (t == 2)
+                s = -s;
+            offset = (offset + n + s) % n;
         }
-        
-        // printf("off : %d\n", offset);
-        // for (int i = 0; i < n; i++)
-        //     printf("%d ", v[(n-offset+i)%n]);
-        // printf("\n");
     }
-    // cout << offset << endl;
+
     for (int i = 0; i < n; i++)
-        printf("%d ", v[(n-offset+i)%n]);
+        printf("%d ", v[(offset + i) % n]);
 
     return 0;
 }
